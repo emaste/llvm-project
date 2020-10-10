@@ -1,0 +1,22 @@
+env:
+  CIRRUS_CLONE_DEPTH: 1
+
+task:
+  freebsd_instance:
+    matrix:
+      image: freebsd-12-2-release-amd64
+      image_family: freebsd-13-0-snap
+    cpu: 8
+    memory: 24G
+  timeout_in: 120m
+  install_script:
+  - pkg install -y bash cmake gmake git-lite perl5 ninja py37-psutil swig
+  script:
+  - mkdir -p build
+  - cd build
+  - cmake -GNinja -DCMAKE_BUILD_TYPE=Release
+    -DLLVM_ENABLE_PROJECTS="clang;lld" ../llvm
+  - ninja
+  clang_test_script:
+  - cd build
+  - env FREEBSD_REMOTE_PLUGIN=1 ninja check-clang
