@@ -1,0 +1,23 @@
+env:
+  CIRRUS_CLONE_DEPTH: 1
+
+task:
+  freebsd_instance:
+    matrix:
+      image_family: freebsd-13-1-snap
+    cpu: 8
+    memory: 24G
+  timeout_in: 120m
+  install_script:
+  - pkg install -y bash cmake gmake git-lite perl5 ninja py37-psutil swig
+  script:
+  - mkdir -p build
+  - cd build
+  - cmake -GNinja -DCMAKE_BUILD_TYPE=Release
+    -DLLVM_ENABLE_PROJECTS="all"
+    -DLLVM_PARALLEL_LINK_JOBS=1
+    ../llvm
+  - ninja
+  lldb_test_script:
+  - cd build
+  - env FREEBSD_REMOTE_PLUGIN=1 ninja check-lldb
