@@ -1,4 +1,5 @@
 # UNSUPPORTED: lldb-repro
+# XFAIL: system-freebsd
 # XFAIL: system-windows
 # REQUIRES: native && target-x86_64 && native-cpu-avx
 # RUN: %clangxx_host %p/Inputs/x86-ymm-read.cpp -o %t
