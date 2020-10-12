@@ -1484,7 +1484,7 @@ class Base(unittest2.TestCase):
     def getstdlibFlag(self):
         """ Returns the proper -stdlib flag, or empty if not required."""
         if self.platformIsDarwin() or self.getPlatform() == "freebsd" or self.getPlatform() == "openbsd":
-            stdlibflag = "-stdlib=libc++"
+            stdlibflag = "-stdlib=libc++" # XXX needed on FreeBSD?
         else:  # this includes NetBSD
             stdlibflag = ""
         return stdlibflag
@@ -1741,8 +1741,8 @@ class Base(unittest2.TestCase):
             else:
                 cflags += "c++11"
         if self.platformIsDarwin() or self.getPlatform() == "freebsd":
-            cflags += " -stdlib=libc++"
-        elif self.getPlatform() == "openbsd":
+            cflags += " -stdlib=libc++" # XXX needed on FreeBSD?
+        elif self.getPlatform() == "openbsd": # XXX why separate case?
             cflags += " -stdlib=libc++"
         elif self.getPlatform() == "netbsd":
             # NetBSD defaults to libc++

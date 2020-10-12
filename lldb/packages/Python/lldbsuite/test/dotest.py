@@ -946,6 +946,7 @@ def run_suite():
     checkDebugInfoSupport()
 
     # Don't do debugserver tests on anything except OS X.
+    # XXX comment wrong
     configuration.dont_do_debugserver_test = (
             "linux" in target_platform or
             "freebsd" in target_platform or
@@ -953,6 +954,7 @@ def run_suite():
             "windows" in target_platform)
 
     # Don't do lldb-server (llgs) tests on anything except Linux and Windows.
+    # XXX comment wrong
     configuration.dont_do_llgs_test = not (
             "linux" in target_platform or
             "freebsd" in target_platform or
