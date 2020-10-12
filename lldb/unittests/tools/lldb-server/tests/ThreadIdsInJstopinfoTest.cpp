@@ -22,7 +22,7 @@ using namespace llvm;
 using namespace lldb;
 using namespace testing;
 
-#ifdef __NetBSD__
+#if defined(__FreeBSD__) || defined(__NetBSD__)
 #define SKIP_ON_NETBSD(x) DISABLED_ ## x
 #else
 #define SKIP_ON_NETBSD(x) x
