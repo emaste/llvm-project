@@ -6,6 +6,7 @@ FreeBSD
 
 LLDB on FreeBSD lags behind the Linux implementation but is improving rapidly.
 For more details, see the Features by OS section below.
+XXX update w/ Moritz work.
 
 Linux
 -----
