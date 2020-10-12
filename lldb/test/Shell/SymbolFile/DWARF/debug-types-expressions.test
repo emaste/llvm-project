@@ -1,4 +1,5 @@
 # UNSUPPORTED: system-darwin, system-windows
+# XFAIL: system-freebsd
 
 # Make sure DWARF v4 type units work.
 # RUN: %clangxx_host %S/Inputs/debug-types-expressions.cpp \
