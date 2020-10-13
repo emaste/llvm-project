@@ -4,7 +4,7 @@
 #include <mutex>
 #include <thread>
 
-std::mutex t1_mutex, t2_mutex, main_mutex;
+std::mutex t1_mutex, t2_mutex;
 
 struct test_data {
   uint32_t eax;
