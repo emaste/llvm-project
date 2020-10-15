@@ -14,6 +14,8 @@
 #include "lldb/Target/RegisterContext.h"
 #include "lldb/Utility/Log.h"
 
+using namespace lldb_private;
+
 class RegisterContextPOSIX_mips64 : public lldb_private::RegisterContext {
 public:
 
