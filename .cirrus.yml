@@ -19,12 +19,12 @@ task:
   - cmake -GNinja -DCMAKE_BUILD_TYPE=Release
     -DLLVM_ENABLE_PROJECTS="clang;lldb" ../llvm
   - ninja
-  lldb_test_script:
-  - cd build
-  - env FREEBSD_REMOTE_PLUGIN=1 ninja check-lldb
   lld_test_script:
   - cd build
   - ninja check-lld
   clang_test_script:
   - cd build
   - ninja check-clang
+  lldb_test_script:
+  - cd build
+  - env FREEBSD_REMOTE_PLUGIN=1 ninja check-lldb
