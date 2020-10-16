@@ -12,7 +12,7 @@ task:
     memory: 24G
   timeout_in: 120m
   install_script:
-  - pkg install -y cmake git-lite ninja py37-psutil
+  - pkg install -y bash cmake git-lite ninja py37-psutil
   script:
   - mkdir -p build
   - cd build
