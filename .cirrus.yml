@@ -17,7 +17,7 @@ task:
   - mkdir -p build
   - cd build
   - cmake -GNinja -DCMAKE_BUILD_TYPE=Release
-    -DLLVM_ENABLE_PROJECTS="clang;lldb" ../llvm
+    -DLLVM_ENABLE_PROJECTS="clang;lldb;lld" ../llvm
   - ninja
   lld_test_script:
   - cd build
