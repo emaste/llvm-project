@@ -17,7 +17,7 @@ class TsanThreadNumbersTestCase(TestBase):
         oslist=["linux"],
         bugnumber="non-core functionality, need to reenable and fix later (DES 2014.11.07)")
     @expectedFailureNetBSD
-    @skipIfFreeBSD  # llvm.org/pr21136 runtimes not yet available by default
+    #@skipIfFreeBSD  # llvm.org/pr21136 runtimes not yet available by default
     @skipIfRemote
     @skipUnlessThreadSanitizer
     def test(self):

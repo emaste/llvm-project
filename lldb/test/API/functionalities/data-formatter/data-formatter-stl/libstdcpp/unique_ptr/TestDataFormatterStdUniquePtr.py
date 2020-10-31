@@ -61,7 +61,7 @@ class StdUniquePtrDataFormatterTestCase(TestBase):
         self.assertEqual(3, sdp_deleter.GetChildMemberWithName("a").GetValueAsUnsigned())
         self.assertEqual(4, sdp_deleter.GetChildMemberWithName("b").GetValueAsUnsigned())
 
-    @skipIfFreeBSD
+    #@skipIfFreeBSD
     @skipIfWindows  # libstdcpp not ported to Windows
     @skipIfDarwin  # doesn't compile on Darwin
     @skipIfwatchOS  # libstdcpp not ported to watchos
