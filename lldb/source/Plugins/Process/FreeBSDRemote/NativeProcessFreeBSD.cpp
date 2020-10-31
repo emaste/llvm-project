@@ -125,10 +125,6 @@ NativeProcessFreeBSD::Factory::Attach(
   if (!status.Success())
     return status.ToError();
 
-  status = process_up->SetupTrace();
-  if (status.Fail())
-    return status.ToError();
-
   return std::move(process_up);
 }
 
@@ -698,8 +694,9 @@ Status NativeProcessFreeBSD::Attach() {
       0)
     return Status(errno, eErrorTypePOSIX);
 
-  /* Initialize threads */
-  status = ReinitializeThreads();
+  // Initialize threads and tracing status
+  // NB: this needs to be called before we set thread state
+  status = SetupTrace();
   if (status.Fail())
     return status;
 
@@ -707,7 +704,8 @@ Status NativeProcessFreeBSD::Attach() {
     static_cast<NativeThreadFreeBSD &>(*thread).SetStoppedBySignal(SIGSTOP);
 
   // Let our process instance know the thread has stopped.
-  SetState(StateType::eStateStopped);
+  SetCurrentThreadID(m_threads.front()->GetID());
+  SetState(StateType::eStateStopped, false);
   return Status();
 }
 
