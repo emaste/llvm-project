@@ -41,6 +41,7 @@ class TestVSCode_attach(lldbvscode_testcase.VSCodeTestCaseBase):
             self.continue_to_exit()
 
     @skipIfWindows
+    @skipIfFreeBSD # Flaky
     @skipIfNetBSD # Hangs on NetBSD as well
     @skipIfRemote
     def test_by_pid(self):
@@ -57,6 +58,7 @@ class TestVSCode_attach(lldbvscode_testcase.VSCodeTestCaseBase):
         self.set_and_hit_breakpoint(continueToExit=True)
 
     @skipIfWindows
+    @skipIfFreeBSD # Flaky
     @skipIfNetBSD # Hangs on NetBSD as well
     @skipIfRemote
     def test_by_name(self):
@@ -95,6 +97,7 @@ class TestVSCode_attach(lldbvscode_testcase.VSCodeTestCaseBase):
 
     @skipUnlessDarwin
     @skipIfDarwin
+    @skipIfFreeBSD # Flaky
     @skipIfNetBSD # Hangs on NetBSD as well
     def test_by_name_waitFor(self):
         '''
@@ -112,6 +115,7 @@ class TestVSCode_attach(lldbvscode_testcase.VSCodeTestCaseBase):
 
     @skipIfWindows
     @skipIfDarwin
+    @skipIfFreeBSD # Flaky
     @skipIfNetBSD # Hangs on NetBSD as well
     @skipIf(archs=["arm", "aarch64"]) # Example of a flaky run http://lab.llvm.org:8011/builders/lldb-aarch64-ubuntu/builds/5527/steps/test/logs/stdio
     def test_commands(self):
@@ -197,6 +201,7 @@ class TestVSCode_attach(lldbvscode_testcase.VSCodeTestCaseBase):
 
     @skipIfWindows
     @skipIfDarwin
+    @skipIfFreeBSD # Flaky
     @skipIfNetBSD # Hangs on NetBSD as well
     @skipIf(archs=["arm", "aarch64"]) # Example of a flaky run http://lab.llvm.org:8011/builders/lldb-aarch64-ubuntu/builds/5517/steps/test/logs/stdio
     def test_terminate_commands(self):
