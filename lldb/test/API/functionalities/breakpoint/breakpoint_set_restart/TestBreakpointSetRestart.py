@@ -10,6 +10,7 @@ from lldbsuite.test.lldbtest import *
 class BreakpointSetRestart(TestBase):
     BREAKPOINT_TEXT = 'Set a breakpoint here'
 
+    @skipIfFreeBSD # Flaky
     @skipIfNetBSD
     @skipIf(oslist=["freebsd"],
             bugnumber="github.com/llvm/llvm-project/issues/56082")
