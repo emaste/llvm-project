@@ -9,6 +9,7 @@ class ConcurrentManyBreakpoints(ConcurrentEventsBase):
 
     # Atomic sequences are not supported yet for MIPS in LLDB.
     @skipIf(triple='^mips')
+    @skipIfFreeBSD
     @skipIfOutOfTreeDebugserver
     @expectedFailureAll(archs=["aarch64"], oslist=["freebsd"],
                         bugnumber="llvm.org/pr49433")
