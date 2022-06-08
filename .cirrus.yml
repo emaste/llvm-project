@@ -9,7 +9,7 @@ task:
     memory: 24G
   timeout_in: 120m
   install_script:
-  - pkg install -y bash cmake gmake git-lite perl5 ninja py37-psutil swig
+  - pkg install -y bash cmake gmake git-lite perl5 ninja py38-psutil swig
   script:
   - mkdir -p build
   - cd build
