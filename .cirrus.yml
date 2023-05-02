@@ -4,8 +4,8 @@ env:
 task:
   freebsd_instance:
     matrix:
-      image: freebsd-12-1-release-amd64
-      image_family: freebsd-13-0-snap
+      image: freebsd-12-4-release-amd64
+      image_family: freebsd-13-2-snap
     cpu: 8
     memory: 24G
   timeout_in: 120m
