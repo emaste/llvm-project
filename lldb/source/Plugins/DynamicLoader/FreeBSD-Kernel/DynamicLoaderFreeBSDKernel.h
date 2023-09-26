@@ -1,3 +1,12 @@
+//===-- DynamicLoaderFreeBSDKernel.h
+//------------------------------------------===//
+//
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+//
+//===----------------------------------------------------------------------===//
+
 #ifndef LLDB_SOURCE_PLUGINS_DYNAMICLOADER_FREEBSD_KERNEL_DYNAMICLOADERFREEBSDKERNEL_H
 #define LLDB_SOURCE_PLUGINS_DYNAMICLOADER_FREEBSD_KERNEL_DYNAMICLOADERFREEBSDKERNEL_H
 
@@ -24,9 +33,7 @@ public:
 
   static void Terminate();
 
-  static llvm::StringRef GetPluginNameStatic() {
-    return "DynamicLoaderFreeBSDKernel";
-  }
+  static llvm::StringRef GetPluginNameStatic() { return "freebsd-kernel"; }
 
   static llvm::StringRef GetPluginDescriptionStatic();
 
@@ -124,7 +131,7 @@ protected:
 
   void LoadKernelModules();
 
-  bool ReadAllKmods();
+  void ReadAllKmods();
 
   bool ReadAllKmods(lldb_private::Address linker_files_head_address,
                     KModImageInfo::collection_type &kmods_list);
